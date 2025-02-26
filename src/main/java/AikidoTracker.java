@@ -2,25 +2,30 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AikidoTracker {
-        private static final double graduationHours = 100;
+        private static int numberOfSessions = 0;
         private ArrayList<AikidoSession> sessions = new ArrayList<>();
         private Scanner scanner = new Scanner(System.in);
 
         public void addSession(String date, double duration) {
             sessions.add(new AikidoSession(date, duration));
+            numberOfSessions++;
 
         }
 
+        public double getTotalTime() {
+            return sessions.stream().mapToDouble(s -> s.duration).sum();
+        }
+
         public double viewTotalTime() {
+            System.out.println("Total practice time: " + getTotalTime() + " hours");
             return sessions.stream().mapToDouble(s -> s.duration).sum();
         }
 
         public void checkGraduationEligibility() {
-            double totalHours = sessions.stream().mapToDouble(s -> s.duration).sum();
-            if (totalHours >= graduationHours) {
+            if (numberOfSessions>=100) {
                 System.out.println("Congratulations! You are eligible for graduation");
             } else {
-                System.out.println("You need " + (graduationHours-totalHours) + " more hours to be eligible for graduation");
+                System.out.println(STR."You need \{100 - numberOfSessions} more sessions to be eligible for graduation");
             }
         }
 

@@ -31,7 +31,7 @@
     </dependencies>
 
     <build>
-        <finalName>Calculator</finalName>
+        <finalName>Aikido</finalName>
         <plugins>
             <!-- Maven Compiler Plugin -->
             <plugin>
@@ -54,7 +54,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>Calculator</mainClass>
+                            <mainClass>Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

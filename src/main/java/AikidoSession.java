@@ -6,4 +6,8 @@ public class AikidoSession {
         this.date = date;
         this.duration = duration;
     }
+
+    public double totalDuration(double duration) {
+        return duration + this.duration;
+    }
 }
